@@ -19,19 +19,19 @@ public class TestApi {
         this.inMemoryAppUserList = inMemoryAppUserList;
     }
 
-    @GetMapping("/forAdmin")
+    @GetMapping("/admin")
     public String forAdmin(Principal principal) {
         String name = principal.getName();
         return String.format(HELLO_MSG, "admin  " + name, getNumberOfSuccessAuth(name));
     }
 
-    @GetMapping("/forUser")
+    @GetMapping("/user")
     public String forUser(Principal principal) {
         String name = principal.getName();
         return String.format(HELLO_MSG, "user  " + name, getNumberOfSuccessAuth(name));
     }
 
-    @GetMapping("/forUnknown")
+    @GetMapping("/unknown")
     public String forAll(Principal principal) {
         String name = principal.getName();
         return String.format(HELLO_MSG, "unknown  " + name, getNumberOfSuccessAuth(name));
